@@ -1,0 +1,41 @@
+# ログファイル
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Node Modules
+node_modules
+
+# ビルドディレクトリ
+dist
+dist-ssr
+
+# ローカル環境ファイル
+*.local
+.env
+.env.*.local
+
+# Viteキャッシュ
+.vite
+
+# VSCode設定
+.vscode/*
+!.vscode/extensions.json
+
+# IDEとエディタ固有のファイル
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# TypeScriptビルド情報
+*.tsbuildinfo
+
+# その他のファイル
+*.log
