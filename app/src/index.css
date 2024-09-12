@@ -1,3 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  font-size: clamp(14px, 2vw, 18px);
+  line-height: 1.5;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f4f4f4;
+  color: #333;
+  font-family: "Noto Sans JP", system-ui;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+}
