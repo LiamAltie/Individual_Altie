@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Article from "./pages/Article";
 import ArticleList from "./pages/ArticleList";
@@ -9,7 +9,7 @@ import ScrollToTop from "./utils/scrollToTop";
 
 const App: React.FC = () => {
   return (
-    <Router basename={import.meta.env.BASE_URL}>
+    <Router basename={import.meta.env.DEV ? "/" : "/Individual_Altie/"}>
       <ScrollToTop />
       <Navbar />
       <Routes>
