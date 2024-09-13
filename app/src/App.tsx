@@ -9,7 +9,7 @@ import ScrollToTop from "./utils/scrollToTop";
 
 const App: React.FC = () => {
   return (
-    <Router basename="/Individual_Altie">
+    <Router basename={import.meta.env.BASE_URL}>
       <ScrollToTop />
       <Navbar />
       <Routes>
