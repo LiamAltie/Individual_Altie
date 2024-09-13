@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { client, Link, Helmet } from "../utils/commonImports";
 import { formatToJST } from "../utils/dateFormatter";
 import { formatTags } from "../utils/TagFormatter";
+import Loading from "../components/Loading";
 import LazyLoad from "react-lazyload";
 
 interface Content {
@@ -23,6 +24,8 @@ const ContentList: React.FC = () => {
   const [contents, setContents] = useState<Content[]>([]);
   const [visibleContents, setVisibleContents] = useState<Content[]>([]);
   const [loadCount, setLoadCount] = useState(4);
+  const [loading, setLoading] = useState(true);
+  const [fadeIn, setFadeIn] = useState(false);
 
   useEffect(() => {
     const fetchContents = async () => {
@@ -35,6 +38,9 @@ const ContentList: React.FC = () => {
         setVisibleContents(data.contents.slice(0, loadCount));
       } catch (error) {
         console.error("Error fetching contents:", error);
+      } finally {
+        setLoading(false);
+        setTimeout(() => setFadeIn(true), 50);
       }
     };
 
@@ -45,8 +51,16 @@ const ContentList: React.FC = () => {
     setLoadCount((prevCount) => prevCount + 6);
   };
 
+  if (loading) {
+    return <Loading />; // ローディングコンポーネントを表示
+  }
+
   return (
-    <div className="max-w-screen-xl mx-auto px-4 pb-16">
+    <div
+      className={`max-w-screen-xl mx-auto px-4 pb-16 transition-opacity duration-500 ${
+        fadeIn ? "opacity-100" : "opacity-0"
+      }`}
+    >
       <Helmet>
         <title>記事一覧</title>
       </Helmet>
@@ -156,7 +170,7 @@ const ContentList: React.FC = () => {
               Load More
             </button>
           ) : (
-            <p className="text-gray-400">That's all!</p>
+            <p className="text-gray-400"></p>
           )}
         </div>
       )}

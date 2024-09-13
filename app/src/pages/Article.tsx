@@ -25,11 +25,17 @@ interface Content {
   revisedAt: string;
 }
 
+interface TocItem {
+  id: string;
+  text: string;
+  name: string;
+}
+
 const Article: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [content, setContent] = useState<Content | null>(null);
   const [loading, setLoading] = useState(true);
-  const [toc, setToc] = useState<{ id: string; text: string }[]>([]);
+  const [toc, setToc] = useState<TocItem[]>([]);
   const [fadeIn, setFadeIn] = useState(false);
   const navigate = useNavigate();
 
@@ -135,7 +141,7 @@ const Article: React.FC = () => {
             </span>
           </p>
           <h1 className="text-4xl font-bold mt-6 pb-4">{content.title}</h1>
-          <p className="pb-4">{content.summary}</p>
+          <p className="pb-4 border-b">{content.summary}</p>
           <div
             className="prose"
             dangerouslySetInnerHTML={{ __html: content.content }}
@@ -167,7 +173,7 @@ const Article: React.FC = () => {
         {`
           .fade-in {
             opacity: 0;
-            animation: fadeIn 1s ease-in-out forwards;
+            animation: fadeIn 0.25s ease-in-out forwards;
           }
 
           @keyframes fadeIn {
