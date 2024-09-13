@@ -4,10 +4,12 @@ import Home from "./pages/Home";
 import Article from "./pages/Article";
 import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
+import ScrollToTop from "./utils/scrollToTop";
 
 const App: React.FC = () => {
   return (
     <Router basename={import.meta.env.BASE_URL}>
+      <ScrollToTop />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

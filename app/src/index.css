@@ -21,3 +21,68 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.prose img {
+  width: 80%; /* imgタグの幅を80%に設定 */
+  margin-left: auto; /* 画像を中央揃えにするため */
+  margin-right: auto; /* 画像を中央揃えにするため */
+  height: auto;
+  border-radius: 0.375rem; /* TailwindCSS: rounded-md */
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.prose h1 {
+  font-size: 2.25rem; /* TailwindCSS: text-4xl */
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.prose h2 {
+  font-size: 1.875rem; /* TailwindCSS: text-3xl */
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose h3 {
+  font-size: 1.5rem; /* TailwindCSS: text-2xl */
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* h4 ~ h6 can have progressively smaller sizes */
+.prose h4,
+.prose h5,
+.prose h6 {
+  font-size: 1.25rem; /* TailwindCSS: text-xl */
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose p {
+  font-size: 1rem; /* TailwindCSS: text-base */
+  line-height: 1.75rem; /* TailwindCSS: leading-relaxed */
+  margin-bottom: 1.25rem;
+}
+
+.prose ul,.prose ol {
+  margin-left: 1.25rem; /* 左に少しの余白 */
+  padding-left: 1rem;   /* 追加の余白 */
+  list-style-position: inside; /* リストアイテムをインデントさせない */
+  list-style-type: decimal;
+}
+
+.prose li {
+  margin-bottom: 0.5rem; /* 各リストアイテムの間に少しの余白 */
+  line-height: 1.6;      /* 読みやすい行間 */
+  font-size: 1rem;       /* フォントサイズを基本に設定 */
+}
+
+.prose a {
+  color: blue; /* 最初は青色 */
+  text-decoration: none; /* 下線を非表示 */
+  transition: text-decoration 0.2s ease-in-out; /* 下線の表示をスムーズに */
+}
+
+.prose a:hover {
+  text-decoration: underline; /* ホバー時に下線を表示 */
+}
