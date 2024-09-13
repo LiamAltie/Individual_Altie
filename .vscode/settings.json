@@ -1,3 +1,10 @@
 {
-  "cSpell.words": ["lazyload", "microcms", "predeploy", "tailwindcss"]
+  "cSpell.words": [
+    "hljs",
+    "lazyload",
+    "microcms",
+    "predeploy",
+    "prismjs",
+    "tailwindcss"
+  ]
 }

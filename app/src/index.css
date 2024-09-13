@@ -23,30 +23,40 @@ body {
 }
 
 .prose img {
-  width: 80%; /* imgタグの幅を80%に設定 */
+  width: 90%; /* imgタグの幅を80%に設定 */
   margin-left: auto; /* 画像を中央揃えにするため */
   margin-right: auto; /* 画像を中央揃えにするため */
   height: auto;
   border-radius: 0.375rem; /* TailwindCSS: rounded-md */
   margin-top: 1rem;
   margin-bottom: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 .prose h1 {
   font-size: 2.25rem; /* TailwindCSS: text-4xl */
   margin-top: 2rem;
   margin-bottom: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 .prose h2 {
   font-size: 1.875rem; /* TailwindCSS: text-3xl */
   margin-top: 1.75rem;
   margin-bottom: 0.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .prose h3 {
   font-size: 1.5rem; /* TailwindCSS: text-2xl */
   margin-top: 1.5rem;
   margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 /* h4 ~ h6 can have progressively smaller sizes */
@@ -64,17 +74,17 @@ body {
   margin-bottom: 1.25rem;
 }
 
-.prose ul,.prose ol {
+.prose ul,
+.prose ol {
   margin-left: 1.25rem; /* 左に少しの余白 */
-  padding-left: 1rem;   /* 追加の余白 */
+  padding-left: 1rem; /* 追加の余白 */
   list-style-position: inside; /* リストアイテムをインデントさせない */
-  list-style-type: decimal;
 }
 
 .prose li {
   margin-bottom: 0.5rem; /* 各リストアイテムの間に少しの余白 */
-  line-height: 1.6;      /* 読みやすい行間 */
-  font-size: 1rem;       /* フォントサイズを基本に設定 */
+  line-height: 1.6; /* 読みやすい行間 */
+  font-size: 1rem; /* フォントサイズを基本に設定 */
 }
 
 .prose a {
@@ -85,4 +95,24 @@ body {
 
 .prose a:hover {
   text-decoration: underline; /* ホバー時に下線を表示 */
+}
+
+.prose pre code {
+  font-size: 0.8rem;
+  font-family: "Fira Code", "Source Code Pro", "Consolas", "Menlo",
+    "Courier New", monospace;
+  background-color: #282c34;
+  border-radius: 0.375rem;
+}
+.prose code {
+  font-size: 0.8rem;
+  font-family: "Fira Code", "Source Code Pro", "Consolas", "Menlo",
+    "Courier New", monospace;
+  background-color: #282c34;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  display: inline-block;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
 }

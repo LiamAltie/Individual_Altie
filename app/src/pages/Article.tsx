@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import hljs from "highlight.js"; // highlight.jsをインポート
+import "highlight.js/styles/atom-one-dark.css"; // 好きなテーマをインポート
 import { useParams, useNavigate } from "react-router-dom";
 import { client, Helmet } from "../utils/commonImports";
 import { formatToJST } from "../utils/dateFormatter";
@@ -53,6 +55,13 @@ const Article: React.FC = () => {
     }
   }, [id, navigate]);
 
+  // コンテンツが更新された後にシンタックスハイライトを適用
+  useEffect(() => {
+    document.querySelectorAll("pre code").forEach((block) => {
+      hljs.highlightBlock(block as HTMLElement); // blockをHTMLElementとしてキャスト
+    });
+  }, [content]);
+
   if (loading) {
     return <Loading />;
   }
@@ -68,12 +77,12 @@ const Article: React.FC = () => {
       <Helmet>
         <title>{content.title}</title>
       </Helmet>
-      <div className="grid grid-cols-12 gap-8">
-        <div className="col-span-12 lg:col-span-9">
+      <div className="grid grid-cols-12 gap-8 pb-8">
+        <div className="col-span-12 lg:col-span-9 bg-white p-4 rounded-md shadow-sm">
           <LazyLoad height={200} offset={100}>
             <img
               src={content.featuredImage.url}
-              className="w-full aspect-video object-cover rounded-sm shadow-md transition-transform duration-300 ease-in-out transform group-hover:scale-105" // 画像を拡大するクラス
+              className="w-full aspect-video object-cover rounded-sm shadow-md transition-transform duration-300 ease-in-out transform group-hover:scale-105"
               alt={content.title}
             />
           </LazyLoad>
@@ -99,7 +108,9 @@ const Article: React.FC = () => {
               {formatToJST(content.publishedAt)}
             </span>
           </p>
-          <h1 className="text-3xl font-bold mt-6">{content.title}</h1>
+          <h1 className="text-4xl font-bold mt-6 border-b pb-4">
+            {content.title}
+          </h1>
           <div
             className="prose mt-4"
             dangerouslySetInnerHTML={{ __html: content.content }}
