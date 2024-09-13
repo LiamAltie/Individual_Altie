@@ -54,7 +54,10 @@ const Navbar = () => {
       <div className="max-w-screen-xl mx-auto flex items-center justify-between h-10 px-4">
         {/* 左半分のロゴを左寄せ */}
         <div className="flex items-center bg-indigo-600 px-3 rounded-sm">
-          <a href="/" className="text-lg tracking-wider font-bold text-white">
+          <a
+            href={`/${repositoryName}/`}
+            className="text-lg tracking-wider font-bold text-white"
+          >
             ALTIE
           </a>
         </div>
